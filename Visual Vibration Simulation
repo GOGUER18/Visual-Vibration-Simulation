@@ -1,0 +1,58 @@
+import pygame
+import sys
+import random
+import time
+
+# Initialize Pygame
+pygame.init()
+
+# Set up the display
+WIDTH, HEIGHT = 800, 600
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Simple Vibration Simulation")
+
+# Colors
+WHITE = (255, 255, 255)
+RED = (255, 0, 0)
+
+# Circle properties
+circle_radius = 20
+base_x, base_y = WIDTH // 2, HEIGHT // 2  # Center of the screen
+vibration_intensity = 5  # Max pixel displacement
+vibration_speed = 0.05  # Seconds per vibration cycle
+
+# Game loop
+clock = pygame.time.Clock()
+running = True
+last_vibrate_time = time.time()
+
+while running:
+    # Handle events
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    # Simulate vibration by offsetting the circle's position
+    current_time = time.time()
+    if current_time - last_vibrate_time >= vibration_speed:
+        offset_x = random.uniform(-vibration_intensity, vibration_intensity)
+        offset_y = random.uniform(-vibration_intensity, vibration_intensity)
+        last_vibrate_time = current_time
+    else:
+        offset_x, offset_y = 0, 0  # No change until next cycle
+
+    # Clear screen
+    screen.fill(WHITE)
+
+    # Draw vibrating circle
+    pygame.draw.circle(screen, RED, (int(base_x + offset_x), int(base_y + offset_y)), circle_radius)
+
+    # Update display
+    pygame.display.flip()
+
+    # Control frame rate
+    clock.tick(60)  # 60 FPS
+
+# Quit Pygame
+pygame.quit()
+sys.exit()

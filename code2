@@ -1,0 +1,3 @@
+if current_time - last_vibrate_time >= vibration_speed:
+        offset_x = random.uniform(-vibration_intensity, vibration_intensity)
+        offset_y = random.uniform(-vibration_intensity, vibration_intensity)

@@ -34,9 +34,7 @@ while running:
 
     # Simulate vibration by offsetting the circle's position
     current_time = time.time()
-    if current_time - last_vibrate_time >= vibration_speed:
-        offset_x = random.uniform(-vibration_intensity, vibration_intensity)
-        offset_y = random.uniform(-vibration_intensity, vibration_intensity)
+    
         last_vibrate_time = current_time
     else:
         offset_x, offset_y = 0, 0  # No change until next cycle

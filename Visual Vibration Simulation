@@ -32,11 +32,6 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    # Simulate vibration by offsetting the circle's position
-    current_time = time.time()
-    
-        last_vibrate_time = current_time
-    else:
-        offset_x, offset_y = 0, 0  # No change until next cycle
+
 
  

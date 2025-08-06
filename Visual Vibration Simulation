@@ -26,11 +26,7 @@ clock = pygame.time.Clock()
 running = True
 last_vibrate_time = time.time()
 
-while running:
-    # Handle events
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+
 
 
 

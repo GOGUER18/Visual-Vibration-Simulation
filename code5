@@ -1,0 +1,4 @@
+# Game loop
+clock = pygame.time.Clock()
+running = True
+last_vibrate_time = time.time()
